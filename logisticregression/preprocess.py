@@ -22,4 +22,6 @@ def write_on_file(filenames, doc_name, filepath):
 
 path = "/home/adnan/source-code/PycharmProjects/Sentiment_Classification_Logistic_Regeression/aclImdb/train/"
 positive_review_name = read_all_file_name(path + 'pos')
-write_on_file(positive_review_name, 'positive_review.txt', path + 'pos/')
+write_on_file(positive_review_name, 'positive_reviews.txt', path + 'pos/')
+negative_review_name = read_all_file_name(path + 'neg')
+write_on_file(negative_review_name, 'negative_reviews.txt', path + 'neg/')
