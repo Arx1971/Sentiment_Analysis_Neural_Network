@@ -7,19 +7,18 @@ def dictionary_frequency_viewer(dictionary):
         print(values, key)
 
 
-def bag_of_word_model(filename, filepath):
+def bag_of_word_model(reviews):
     dictionary = dict()
-    for file in filename:
-        with open(filepath + file, "r") as reviews:
-            review = reviews.read()
-            review = re.sub(r'[`=~!@#$%^&*()_+\[\]{};\\:"|<,./<>?^]', ' ', review)
-            words = review.split()
+    with open(reviews, 'r') as lines:
+        for line in lines:
+            words = line.split()
             for word in words:
-                word = word.lower()
-                word = word.strip(punctuation)
-                word = word.strip()
                 if word in dictionary:
                     dictionary[word] += 1
                 else:
                     dictionary[word] = 1
     return dictionary
+
+
+positive_vocabulary = bag_of_word_model('positive_reviews.txt')
+negative_vocabulary = bag_of_word_model('negative_reviews.txt')
