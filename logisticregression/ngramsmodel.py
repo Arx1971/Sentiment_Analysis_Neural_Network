@@ -1,7 +1,3 @@
-import re
-from string import punctuation
-
-
 def dictionary_frequency_viewer(dictionary):
     for values, key in dictionary.items():
         print(values, key)
