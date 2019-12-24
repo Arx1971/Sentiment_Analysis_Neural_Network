@@ -25,5 +25,6 @@ def bag_of_word_model(reviews):
     return dictionary
 
 
-positive_vocabulary = bag_of_word_model('positive_reviews.txt')
-negative_vocabulary = bag_of_word_model('negative_reviews.txt')
+positive_vocabulary = bag_of_word_model('positive_reviews_train.txt')
+negative_vocabulary = bag_of_word_model('negative_reviews_train.txt')
+dictionary_frequency_viewer(negative_vocabulary)
