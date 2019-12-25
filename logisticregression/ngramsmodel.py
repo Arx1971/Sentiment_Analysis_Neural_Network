@@ -38,4 +38,6 @@ def bag_of_word_model(reviews):
 positive = bag_of_word_model('positive_reviews_train.txt')
 positive_vocabulary = positive[0]
 positive_idf = positive[1]
-negative_vocabulary = bag_of_word_model('negative_reviews_train.txt')[0]
+negative = bag_of_word_model('negative_reviews_train.txt')
+negative_vocabulary = negative[0]
+negative_idf = negative[1]

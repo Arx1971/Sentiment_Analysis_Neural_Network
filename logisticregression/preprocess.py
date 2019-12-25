@@ -20,8 +20,12 @@ def write_on_file(filenames, doc_name, filepath):
     doc.close()
 
 
-path = "/home/adnan/source-code/PycharmProjects/Sentiment_Classification_Logistic_Regeression/aclImdb/train/"
-positive_review_name = read_all_file_name(path + 'pos')
-write_on_file(positive_review_name, 'positive_reviews_train.txt', path + 'pos/')
-negative_review_name = read_all_file_name(path + 'neg')
-write_on_file(negative_review_name, 'negative_reviews_train.txt', path + 'neg/')
+path = "/home/adnan/source-code/PycharmProjects/Sentiment_Classification_Logistic_Regeression/aclImdb/"
+train_positive_review_name = read_all_file_name(path + 'train/pos')
+write_on_file(train_positive_review_name, 'positive_reviews_train.txt', path + 'train/pos/')
+train_negative_review_name = read_all_file_name(path + 'train/neg')
+write_on_file(train_negative_review_name, 'negative_reviews_train.txt', path + 'train/neg/')
+test_positive_review_name = read_all_file_name(path + 'test/pos')
+write_on_file(test_positive_review_name, 'positive_reviews_test.txt', path + 'test/pos/')
+test_negative_review_name = read_all_file_name(path + '/test/neg')
+write_on_file(test_negative_review_name, 'negative_reviews_test.txt', path + 'test/neg/')
