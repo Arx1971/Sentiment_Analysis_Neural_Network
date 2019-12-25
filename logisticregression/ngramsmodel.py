@@ -2,6 +2,7 @@ import nltk
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 import string
+import math
 
 
 # nltk.download('stopwords') download all the stopwords
@@ -21,6 +22,11 @@ def regression(reviews, dictionary, tdf_dictionary):
                     documents_frequency[word] += 1
                 else:
                     documents_frequency[word] = 1
+            mle = 0.0
+            for word in words:
+                idf = math.log(2, (1 + 12500) / 1 + tdf_dictionary.get(word, 0)) + 1
+                tf = documents_frequency[word]
+                tf_idf = tf * idf
 
 
 def bag_of_word_model(reviews):
