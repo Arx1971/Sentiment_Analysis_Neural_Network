@@ -11,6 +11,18 @@ def dictionary_frequency_viewer(dictionary):
         print(key, values)
 
 
+def regression(reviews, dictionary, tdf_dictionary):
+    with open(reviews, 'r') as lines:
+        for line in lines:
+            documents_frequency = dict()
+            words = line.split()
+            for word in words:
+                if word in documents_frequency:
+                    documents_frequency[word] += 1
+                else:
+                    documents_frequency[word] = 1
+
+
 def bag_of_word_model(reviews):
     dictionary = dict()
     idf_dictionary = dict()
