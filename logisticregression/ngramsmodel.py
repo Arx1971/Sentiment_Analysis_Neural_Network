@@ -28,34 +28,34 @@ def sum_of_values(dictionary):
     return total
 
 
-def regression(reviews, dictionary, tdf_dictionary, total_word_in_class, total_vocabulary_size):
-    positive_counter = 0
-    negative_counter = 0
-    with open(reviews, 'r') as lines:
-        for line in lines:
-            documents_frequency = dict()
-            words = line.split()
-            for word in words:
-                if word in documents_frequency:
-                    documents_frequency[word] += 1
-                else:
-                    documents_frequency[word] = 1
-            mle = 0.0
-            for word in words:
-                idf = float(math.log((1 + 12500) / 1 + tdf_dictionary.get(word, 0)) + 1)
-                tf = documents_frequency[word]
-                tf_idf = float(tf * idf)
-                prob = float((dictionary.get(word, 0) + 1) / (total_word_in_class + total_vocabulary_size))
-                mle += math.log(prob * tf_idf)
-
-            value = sigmoid_function(mle)
-            print(value)
-            if value >= 0.5:
-                positive_counter += 1
-            else:
-                negative_counter += 1
-
-    return positive_counter, negative_counter
+# def regression(reviews, dictionary, tdf_dictionary, total_word_in_class, total_vocabulary_size):
+#     positive_counter = 0
+#     negative_counter = 0
+#     with open(reviews, 'r') as lines:
+#         for line in lines:
+#             documents_frequency = dict()
+#             words = line.split()
+#             for word in words:
+#                 if word in documents_frequency:
+#                     documents_frequency[word] += 1
+#                 else:
+#                     documents_frequency[word] = 1
+#             mle = 0.0
+#             for word in words:
+#                 idf = float(math.log((1 + 1000) / 1 + tdf_dictionary.get(word, 0)) + 1)
+#                 tf = documents_frequency[word]
+#                 tf_idf = float(tf * idf)
+#                 prob = dictionary.get(word, 1)
+#                 mle += math.log(prob * tf_idf)
+#
+#             value = sigmoid_function(mle)
+#
+#             if value >= 0.5:
+#                 positive_counter += 1
+#             else:
+#                 negative_counter += 1
+#
+#     return positive_counter, negative_counter
 
 
 def bag_of_word_model(reviews):
@@ -84,14 +84,14 @@ def bag_of_word_model(reviews):
     return dictionary, idf_dictionary, total_number_word_in_class
 
 
-positive = bag_of_word_model('positive_reviews_train.txt')
+positive = bag_of_word_model('positive_train.txt')
 positive_vocabulary = positive[0]
 positive_idf = positive[1]
 total_positive_word = positive[2]
-negative = bag_of_word_model('negative_reviews_train.txt')
+negative = bag_of_word_model('negative_train.txt')
 negative_vocabulary = negative[0]
 negative_idf = negative[1]
 total_negative_word = negative[2]
 total_vocabulary = merge_vocabulary(negative_vocabulary, positive_vocabulary)
-total_size = len(total_vocabulary)
-print(regression('positive_reviews_test.txt', positive_vocabulary, positive_idf, total_positive_word, total_size))
+# total_size = len(total_vocabulary)
+# print(regression('positive_test.txt', positive_vocabulary, positive_idf, total_positive_word, total_size))
