@@ -21,3 +21,7 @@ neg_data_set = load_data_set(negative_review_path, 0)
 pos_data_set.extend(neg_data_set)
 
 df = pd.DataFrame(pos_data_set, columns=['Review', 'Label'])
+np.random.seed(0)
+df = df.reindex(np.random.permutation(df.index))
+df.to_csv('./movie_review.csv', index=False, encoding='utf-8')
+
