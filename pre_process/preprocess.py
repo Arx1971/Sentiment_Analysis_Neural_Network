@@ -1,6 +1,6 @@
 import re
 from string import punctuation
-from logisticregression.filereader import read_all_file_name
+from pre_process.filereader import read_all_file_name
 
 
 def write_on_file(filenames, doc_name, filepath):

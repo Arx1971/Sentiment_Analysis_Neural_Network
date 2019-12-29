@@ -1,7 +1,7 @@
 from sklearn.datasets import load_files
 import numpy as np
-from logisticregression.activationvalues import *
-from logisticregression import *
+from pre_process.activationvalues import *
+from pre_process import *
 
 
 def main():

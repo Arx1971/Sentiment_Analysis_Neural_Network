@@ -3,7 +3,7 @@ from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 import string
 import math
-from logisticregression.activationvalues import sigmoid_function
+from pre_process.activationvalues import sigmoid_function
 from collections import Counter
 
 
